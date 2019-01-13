@@ -214,7 +214,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	.
 	.
     my_check (1.0.0)
-    ----------------
+    \----------------
       Instance ID: my_check:5bbfe9f3938f1c8d [OK]
       Total Runs: 17
       Metric Samples: Last Run: 1, Total: 17
