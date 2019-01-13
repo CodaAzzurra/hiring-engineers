@@ -116,11 +116,11 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 1. Add tags to the Agent configuration file. Per the command line output from the Agent installation, the Agent confuguration file is _/etc/datadog-agent/datadog.yaml_. Open that file with your favorite editor such as vi.
 2. Find the _tags_ section.
 3. Uncomment as necessary and add tags as below:  
-	`
-	tags:
-	 - env:localhost
-	 - username:danielcohen
-	`
+	``
+    tags:
+     \- env:localhost
+     \- username:danielcohen
+	``
 4. Restart the Agent.  
 	`
 	vagrant@precise64:/etc/datadog-agent/conf.d/postgres.d$ sudo service datadog-agent restart
