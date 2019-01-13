@@ -225,5 +225,5 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	.
 	.
 	``
-4. Verify _my\_metric_ in the Metrics Explorer.
-	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/008_my_metric_small.png)
+4. Verify _my\_metric_ in the Metrics Explorer.  
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/008_my_check_small.png)
