@@ -13,7 +13,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 
 1. Install VirtualBox v6.0.0 and Oracle VM Extension Pack via https://www.virtualbox.org/. Defaults are OK.
 2. Install Vagrant v2.2.3 via https://www.vagrantup.com/intro/getting-started/. Defaults are OK.
-3. Create the Linux (specifically, Ubuntu 12.04 LTS 64-bit) virtual machine. Open a Terminal window and run:
+3. Create the Linux (specifically, Ubuntu 12.04 LTS 64-bit) virtual machine. Open a Terminal window and run:  
 	``
 	osxltdcohe:~ daniel.cohen$ vagrant init hashicorp/precise64
 	A `Vagrantfile` has been placed in this directory. You are now
@@ -22,7 +22,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	`vagrantup.com` for more information on using Vagrant.
 	osxltdcohe:~ daniel.cohen$
 	``
-4. Launch the virtual machine via Vagrant. (Note that this may take a few minutes.) In the Terminal:
+4. Launch the virtual machine via Vagrant. (Note that this may take a few minutes.) In the Terminal:  
 	``
 	osxltdcohe:~ daniel.cohen$ vagrant up
 	Bringing machine 'default' up with 'virtualbox' provider...
