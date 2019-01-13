@@ -202,4 +202,5 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 
 ## Create a custom Agent check that submits a metric named my_metric with a random value between 0 and 1000.
 
-1. 
+1. Create a Python file _/etc/datadog-agent/check.d/my_check.py_.
+2. Create the corresponding configuration file _/etc/datadog-agent/conf.d/my_check.yaml_.
