@@ -152,4 +152,23 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	vagrant@precise64:/etc/datadog-agent/conf.d/postgres.d$ ls
 	conf.yaml  conf.yaml.example
 	`
-5. Edit that conf.yaml to add the `datadog` username and password as created above. Also add the tags `env:localhost` and `username:danielcohen` for good measure.
+5. Verify the permissions.  
+	``
+	vagrant@precise64:/vagrant$ psql -h localhost -U datadog postgres -c \
+	> "select * from pg_stat_database LIMIT(1);" \
+	> && echo -e "\e[0;32mPostgres connection - OK\e[0m" \
+	> || echo -e "\e[0;31mCannot connect to Postgres\e[0m"
+	Password for user datadog: 
+	Postgres connection - OK
+	``
+	
+	The output data should resemble the following.  
+	``
+	 datid |  datname  | numbackends | xact_commit | xact_rollback | blks_read | blks_hit | tup_returned | tup_fetched | tup_inserted | tup_updated | tup_deleted | conflicts |          stats_reset          
+	-------+-----------+-------------+-------------+---------------+-----------+----------+--------------+-------------+--------------+-------------+-------------+-----------+-------------------------------
+	     1 | template1 |           0 |         166 |             1 |       280 |     7063 |        51273 |        2478 |           27 |           3 |           0 |         0 | 2019-01-13 12:43:28.642741+00
+	(1 row)
+	(END)
+	``
+6. Edit that conf.yaml to add the `datadog` username and password as created above. Also add the tags `env:localhost` and `username:danielcohen` for good measure.
+7. Enable logs.
