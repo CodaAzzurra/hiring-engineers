@@ -202,5 +202,28 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 
 ## Create a custom Agent check that submits a metric named my_metric with a random value between 0 and 1000.
 
-1. Create a Python file _/etc/datadog-agent/check.d/my_check.py_.
-2. Create the corresponding configuration file _/etc/datadog-agent/conf.d/my_check.yaml_.
+1. Create a Python file _/etc/datadog-agent/check.d/my\_check.py_.
+	* [my_check.py](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/python/my_check.py "my_check.py")
+2. Create the corresponding configuration file _/etc/datadog-agent/conf.d/my\_check.yaml_.
+	* [my_check.yaml](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/config/my_check.yaml "my_check.yaml")
+3. Restart the Agent and check the status.  
+	`
+	vagrant@precise64:/vagrant$ sudo datadog-agent status
+	Getting the status from the agent.
+	.
+	.
+	.
+    my_check (1.0.0)
+    ----------------
+      Instance ID: my_check:5bbfe9f3938f1c8d [OK]
+      Total Runs: 17
+      Metric Samples: Last Run: 1, Total: 17
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 0s
+	.
+	.
+	.
+	`
+4. Verify _my\_metric_ in the Metrics Explorer.
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/008_my_metric_small.png)
