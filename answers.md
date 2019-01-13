@@ -93,7 +93,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 		ldconfig deferred processing now taking place
 		vagrant@precise64:~$ 
 		``
-	3. Install and launch the DataDog Agent.
+	3. Install and launch the DataDog Agent.  
 		``
 		vagrant@precise64:~$ DD_API_KEY=b3cff61e756ab51997e27cbdabb0a0bd bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
 		  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -113,7 +113,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 ## Collecting Metrics
 ### Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
 
-1. Add tags to the Agent configuration file. Per the command line output from the Agent installation, the Agent confuguration file is `/etc/datadog-agent/datadog.yaml`. Open that file with your favorite editor such as vi.
+1. Add tags to the Agent configuration file. Per the command line output from the Agent installation, the Agent confuguration file is _/etc/datadog-agent/datadog.yaml_. Open that file with your favorite editor such as vi.
 2. Find the _tags_ section.
 3. Uncomment as necessary and add tags as below:  
 	`
@@ -146,7 +146,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	GRANT
 	template1=# 
 	``
-4. In the directory `/etc/datadog-agent/conf.d/postgres.d`, copy `conf.yaml.example` to `conf.yaml`.
+4. In the directory _/etc/datadog-agent/conf.d/postgres.d_, copy _conf.yaml.example_ to _conf.yaml_.
 	`
 	vagrant@precise64:/etc/datadog-agent/conf.d/postgres.d$ sudo cp conf.yaml.example conf.yaml
 	vagrant@precise64:/etc/datadog-agent/conf.d/postgres.d$ ls
