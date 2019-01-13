@@ -59,7 +59,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 		osxltdcohe:~ daniel.cohen$
 	``
 5. Sign up for DataDog via https://www.datadoghq.com/.  
-	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/001_signup_small.png)
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/001_signup_small.png)
 6. Install the DataDog Ubuntu Agent.
 	1. In the Terminal, SSH into the Ubuntu VM via Vagrant.  
 		``
@@ -110,7 +110,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 		vagrant@precise64:~$ 
 		``
 7. In the browser, click Finish to continue to the DataDog Quick Start page.  
-	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/004_quick_start_small.png)
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/004_quick_start_small.png)
 
 ## Collecting Metrics
 ### Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
@@ -129,7 +129,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	datadog-agent start/running, process 4762
 	`
 4. Check the Host Map page in DataDog for the expected tags.  
-	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/005_tags_small.png)
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/005_tags_small.png)
 
 ### Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
 
@@ -196,6 +196,10 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 9. In _/etc/datadog-agent/datadog.yaml_, ensure log collection is enable with the line `logs_enabled: true`.
 10. Restart the Agent.
 11. Verify that _postgresql_ shows in the Host Map.  
-	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/006_postgres_small.png)
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/006_postgres_small.png)
 12. Verify that the logs show in the Log Explorer.  
-	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/007_logs_small.png)
+	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/007_logs_small.png)
+
+## Create a custom Agent check that submits a metric named my_metric with a random value between 0 and 1000.
+
+1. 
