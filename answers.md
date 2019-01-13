@@ -58,7 +58,8 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	    default: /vagrant => /Users/daniel.cohen
 		osxltdcohe:~ daniel.cohen$
 	``
-5. Sign up for DataDog via https://www.datadoghq.com/.
+5. Sign up for DataDog via https://www.datadoghq.com/.  
+	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/001_signup_small.png)
 6. Install the DataDog Ubuntu Agent.
 	1. In the Terminal, SSH into the Ubuntu VM via Vagrant.  
 		``
@@ -108,26 +109,26 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 		.
 		vagrant@precise64:~$ 
 		``
-7. In the browser, click Finish to continue to the DataDog Quick Start page.
+7. In the browser, click Finish to continue to the DataDog Quick Start page.  
+	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/004_quick_start_small.png)
 
 ## Collecting Metrics
 ### Add tags in the Agent config file and show us a screenshot of your host and its tags on the Host Map page in Datadog.
 
 1. Add tags to the Agent configuration file. Per the command line output from the Agent installation, the Agent confuguration file is _/etc/datadog-agent/datadog.yaml_. Open that file with your favorite editor such as vi.
-2. Find the _tags_ section.
-3. Uncomment as necessary and add tags as below:  
+2. Find the _tags_ section. Uncomment as necessary and add tags as below:  
 	``
-    tags:
+	tags:
      \- env:localhost
      \- username:danielcohen
 	``
-4. Restart the Agent.  
+3. Restart the Agent.  
 	`
 	vagrant@precise64:/etc/datadog-agent/conf.d/postgres.d$ sudo service datadog-agent restart
 	datadog-agent stop/waiting
 	datadog-agent start/running, process 4762
 	`
-5. Check the Host Map page in DataDog for the expected tags.  
+4. Check the Host Map page in DataDog for the expected tags.  
 	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/005_tags_small.png)
 
 ### Install a database on your machine (MongoDB, MySQL, or PostgreSQL) and then install the respective Datadog integration for that database.
@@ -161,8 +162,6 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	Password for user datadog: 
 	Postgres connection - OK
 	``
-	
-	The output data should resemble the following.  
 	``
 	 datid |  datname  | numbackends | xact_commit | xact_rollback | blks_read | blks_hit | tup_returned | tup_fetched | tup_inserted | tup_updated | tup_deleted | conflicts |          stats_reset          
 	-------+-----------+-------------+-------------+---------------+-----------+----------+--------------+-------------+--------------+-------------+-------------+-----------+-------------------------------
@@ -170,5 +169,33 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	(1 row)
 	(END)
 	``
-6. Edit that conf.yaml to add the `datadog` username and password as created above. Also add the tags `env:localhost` and `username:danielcohen` for good measure.
-7. Enable logs.
+6. In _/etc/postgresql/9.1/main/postgresql.conf_, uncomment or set the lines as below. The values may vary to match your environment.
+	``
+	logging_collector = on
+	log_directory = '/var/log/postgresql'
+	log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+	log_file_mode = 0644
+	log_line_prefix = '%m [%p] %d %a %u %h %c '
+	log_statement = 'all'
+	``
+7. Edit _/etc/datadog-agent/conf.d/postgres.d/conf.yaml_ to add the _datadog_ username and password as created above.
+8. Also in _/etc/datadog-agent/conf.d/postgres.d/conf.yaml_, enable log collection from PostgreSQL.  
+	``
+	logs:
+	      \- type: file
+	        path: /var/log/postgresql/postgresql*.log
+	        source: postgresql
+	        sourcecategory: database
+	        service: postgresql
+	        #To handle multi line that starts with yyyy-mm-dd use the following pattern
+	        log_processing_rules:
+	            \- type: multi_line
+	              pattern: \d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])
+	              name: new_log_start_with_date
+	``
+9. In _/etc/datadog-agent/datadog.yaml_, ensure log collection is enable with the line `logs_enabled: true`.
+10. Restart the Agent.
+11. Verify that _postgresql_ shows in the Host Map.  
+	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/006_postgres_small.png)
+12. Verify that the logs show in the Log Explorer.  
+	![](/Users/daniel.cohen/Documents/GitHub/hiring-engineers-fork/image/007_logs_small.png)
