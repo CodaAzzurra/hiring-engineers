@@ -207,7 +207,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 2. Create the corresponding configuration file _/etc/datadog-agent/conf.d/my\_check.yaml_.
 	* [my_check.yaml](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/config/my_check.yaml "my_check.yaml")
 3. Restart the Agent and check the status.  
-	`
+	``
 	vagrant@precise64:/vagrant$ sudo datadog-agent status
 	Getting the status from the agent.
 	.
@@ -224,6 +224,6 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	.
 	.
 	.
-	`
+	``
 4. Verify _my\_metric_ in the Metrics Explorer.
 	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/008_my_metric_small.png)
