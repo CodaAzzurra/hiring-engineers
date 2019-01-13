@@ -96,7 +96,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 		``
 	3. Install and launch the DataDog Agent.  
 		``
-		vagrant@precise64:~$ DD_API_KEY=b3cff61e756ab51997e27cbdabb0a0bd bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
+		vagrant@precise64:~$ DD_API_KEY=******** bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
 		  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 		                                 Dload  Upload   Total   Spent    Left  Speed
 		100 11080  100 11080    0     0  29202      0 --:--:-- --:--:-- --:--:-- 96347
