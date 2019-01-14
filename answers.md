@@ -200,7 +200,7 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 12. Verify that the logs show in the Log Explorer.  
 	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/007_logs_small.png)
 
-## Create a custom Agent check that submits a metric named my_metric with a random value between 0 and 1000.
+### Create a custom Agent check that submits a metric named my_metric with a random value between 0 and 1000.
 
 1. Create a Python file _/etc/datadog-agent/check.d/my\_check.py_.
 	* [my_check.py](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/python/my_check.py "my_check.py")
@@ -227,3 +227,21 @@ _Note: I performed these steps on macOS Mojave, version 10.14.2. Your mileage ma
 	``
 4. Verify _my\_metric_ in the Metrics Explorer.  
 	![](https://github.com/CodaAzzurra/hiring-engineers/blob/solutions-engineer/image/008_my_check_small.png)
+
+### Change your check's collection interval so that it only submits the metric once every 45 seconds.
+
+* Modify _/etc/datadog-agent/conf.d/my\_check.yaml_ to set the _min_collection_interval_ to 45.
+
+### Bonus Question Can you change the collection interval without modifying the Python check file you created?
+
+* Yes, see above. We can change the collection interval by modifying the _min_collection_interval_ in the Agent Check configuration file.
+
+## Visualizing Data
+
+### Utilize the Datadog API to create a Timeboard
+Utilize the Datadog API to create a Timeboard that contains:
+
+* Your custom metric scoped over your host.
+* Any metric from the Integration on your Database with the anomaly function applied.
+* Your custom metric with the rollup function applied to sum up all the points for the past hour into one bucket
+
